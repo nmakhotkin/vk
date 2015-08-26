@@ -1,6 +1,4 @@
 
-from vk.api import API, OAuthAPI, VERSION
-
-__version__ = version = VERSION
+from vk.api import API, OAuthAPI
 
 # API = OAuthAPI
