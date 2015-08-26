@@ -1,8 +1,6 @@
 
 from collections import Iterable
-
-
-STRING_TYPES = (str, bytes, bytearray)
+import six
 
 
 try:
@@ -36,7 +34,7 @@ def json_iter_parse(response_text):
 def stringify_values(method_kwargs):
     stringified_method_kwargs = {}
     for key, value in method_kwargs.items():
-        if not isinstance(value, STRING_TYPES) and isinstance(value, Iterable):
+        if not isinstance(value, six.string_types) and isinstance(value, Iterable):
             value = ','.join(map(str, value))
         stringified_method_kwargs[key] = value
     return stringified_method_kwargs
